@@ -142,3 +142,30 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+const book = getBook(1);
+
+// const author = book.author;
+
+// console.log(author);
+
+//this is array destructuring
+const { title, author, pages, genres } = book;
+
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+
+console.log(primaryGenre, secondaryGenre, otherGenres);
+// console.log(book);
+//below iw the rest operator
+const newGenres = [...genres, "epic fantasy"];
+
+console.log(newGenres);
+
+//updating a book using spread operator
+//we can also override an existing property using spread
+const updatedBook = {
+  ...book,
+  moviePublicationdate: "2001-12-19",
+  pages: 1210,
+};
+console.log(updatedBook);
